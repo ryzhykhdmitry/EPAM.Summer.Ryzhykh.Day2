@@ -20,9 +20,8 @@ namespace NewtonMethod
         /// <param name="accurancy">A number that specifies the accuracy of calculation.</param>
         /// <returns> The nth root of a number.</returns>
         public static double Radical(double number, int power, double accuracy)
-        {
-            if (power == 0) throw new DivideByZeroException();
-            if (number < 0 && power % 2 == 0) throw new ArgumentException();
+        {            
+            if (number < 0 && power % 2 == 0 || power == 0) throw new ArgumentException();
             if (number == 0) return 0;
             double x = 0, result = 1;           
             do

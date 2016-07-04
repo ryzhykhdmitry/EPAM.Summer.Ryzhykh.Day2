@@ -50,13 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EuclideanAlgorithm\EuclideanAlgorithm.csproj">
+    <ProjectReference Include="..\EuclideanAlgorithm\MathMethods.csproj">
       <Project>{8a9778fd-0374-4c44-9313-949435c624fd}</Project>
-      <Name>EuclideanAlgorithm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NewtonMethod\NewtonMethod.csproj">
-      <Project>{44dbf790-903f-4883-bc0d-9c856803b776}</Project>
-      <Name>NewtonMethod</Name>
+      <Name>MathMethods</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

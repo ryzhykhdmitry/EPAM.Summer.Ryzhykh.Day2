@@ -5,11 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace EuclideanAlgorithm
+namespace MathMethods
 {
-    public static class EuclideanAlgorithm
+    /// <summary>
+    /// Allows to use some math methods.
+    /// </summary>
+    public static class MathMethods
     {
         #region EuclideanAlgorithm
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of two numbers.
+        /// </summary>
+        /// <param name="firstNumber">First number.</param>
+        /// <param name="secondNumber">Second number.</param>
+        /// <returns>Greatest common divisor (GCD) of two numbers.</returns>
         public static int EuclidAlgorithm(int firstNumber, int secondNumber)
         {
             int temp;
@@ -21,6 +30,13 @@ namespace EuclideanAlgorithm
             }
             return Math.Abs(firstNumber);
         }
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of two numbers.
+        /// </summary>
+        /// <param name="firstNumber">First number.</param>
+        /// <param name="secondNumber">Second number.</param>
+        /// <param name="time">Elapsed time.</param>
+        /// <returns>Greatest common divisor (GCD) of two numbers and elapsed time.</returns>
         public static int EuclidAlgorithm(int firstNumber, int secondNumber, out long time)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -30,6 +46,13 @@ namespace EuclideanAlgorithm
             time = stopWatch.ElapsedTicks;
             return firstNumber;
         }
+
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers.
+        /// </summary>
+        /// <param name="time">Elapsed time</param>
+        /// <param name="numbers">Numbers</param>
+        /// <returns>Greatest common divisor (GCD) of numbers and elapsed time.</returns>
         public static int EuclidAlgorithm(out long time, params int[] numbers)
         {
             if (numbers == null) throw new NullReferenceException();
@@ -40,6 +63,12 @@ namespace EuclideanAlgorithm
             time = stopWatch.ElapsedTicks;
             return result;
         }
+
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers.
+        /// </summary>
+        /// <param name="numbers">Numbers</param>
+        /// <returns>Greatest common divisor (GCD) of numbers.</returns>
         public static int EuclidAlgorithm(params int[] numbers)
         {
             if (numbers == null) throw new NullReferenceException();
@@ -61,6 +90,12 @@ namespace EuclideanAlgorithm
         #endregion
 
         #region BinaryEuclideanAlgorithm
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers.
+        /// </summary>
+        /// <param name="firstNumber">First number.</param>
+        /// <param name="secondNumber">Second number.</param>
+        /// <returns>Greatest common divisor (GCD) of two numbers.</returns>
         public static int BinaryEuclidAlgorithm(int firstNumber, int secondNumber)
         {
             if (firstNumber == 0)
@@ -101,6 +136,14 @@ namespace EuclideanAlgorithm
             }
             return 0;
         }
+
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers and elapsed time.
+        /// </summary>
+        /// <param name="firstNumber">First number.</param>
+        /// <param name="secondNumber">Second number.</param>
+        /// <param name="time">Elapsed time.</param>
+        /// <returns>Greatest common divisor (GCD) of two numbers and elapsed time.</returns>
         public static int BinaryEuclidAlgorithm(int firstNumber, int secondNumber, out long time)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -110,6 +153,12 @@ namespace EuclideanAlgorithm
             time = stopWatch.ElapsedTicks;
             return result;
         }
+
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers.
+        /// </summary>
+        /// <param name="numbers">Numbers.</param>
+        /// <returns>Greatest common divisor (GCD) of numbers.</returns>
         public static int BinaryEuclidAlgorithm(params int[] numbers)
         {
             if (numbers == null) throw new NullReferenceException();
@@ -200,6 +249,13 @@ namespace EuclideanAlgorithm
                 }
             }
         }
+
+        /// <summary>
+        /// Method for computing the greatest common divisor (GCD) of numbers and elapsed time.
+        /// </summary>
+        /// <param name="time">Elapsed time.</param>
+        /// <param name="numbers">Numebrs.</param>
+        /// <returns>Greatest common divisor (GCD) of numbers and elapsed time.</returns>
         public static int BinaryEuclidAlgorithm(out long time, params int[] numbers)
         {
             if (numbers == null) throw new NullReferenceException();
@@ -211,6 +267,28 @@ namespace EuclideanAlgorithm
             return result;
         }
         #endregion
-    
+
+        #region Newton method        
+            /// <summary>
+            /// Returns the nth root of a specified number by Newton's method.
+            /// </summary>
+            /// <param name="number">A number whose nth root is to be found.</param>
+            /// <param name="power">A number that specifies the power.</param>
+            /// <param name="accurancy">A number that specifies the accuracy of calculation.</param>
+            /// <returns> The nth root of a number.</returns>
+            public static double Radical(double number, int power, double accuracy)
+            {
+                if (number < 0 && power % 2 == 0 || power == 0) throw new ArgumentException();
+                if (number == 0) return 0;
+                double x = 0, result = 1;
+                do
+                {
+                    x = result;
+                    result = ((power - 1) * x + number / Math.Pow(x, power - 1)) / power;
+
+                } while (Math.Abs(x - result) > accuracy);
+                return result;
+            }        
+        #endregion
     }
 }
