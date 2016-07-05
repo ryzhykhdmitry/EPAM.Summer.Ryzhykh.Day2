@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace MathMethods
+namespace SomeMath
 {
     /// <summary>
     /// Allows to use some math methods.
